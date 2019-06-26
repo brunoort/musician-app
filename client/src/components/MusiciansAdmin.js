@@ -27,7 +27,6 @@ export default class MusiciansAdmin extends Component {
         console.log(err);
       });
 
-
       await axios.put(`/musician/${id}`, this.state.newmusician);
       this.setState({ musicians: [...this.state.musicians, this.state.newmusician] });
       this.setState({ newmusician: { "firstName": "", "lastName": "", "genre": "" }});

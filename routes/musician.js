@@ -3,6 +3,7 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 const schema = require('../store/schema');
+const https = require('https');
 
 // healthcheck
 router.get('/health', (req, res) => {
@@ -34,6 +35,27 @@ router.get('/:id', (req, res) => {
 // modify existing musician or add a new one to the data store
 router.put('/:id', jsonParser, async (req, res) => {
   try {
+    let data = '';
+
+    https.get('https://jarcakr0yd.execute-api.us-east-1.amazonaws.com/default/MusicanaApp', (resp) => {
+      // A chunk of data has been recieved.
+      resp.on('data', (chunk) => {
+        data += chunk;
+      });
+
+      // The whole response has been received. Print out the result.
+      resp.on('end', () => {
+        console.log(JSON.parse(data).explanation);
+      });
+
+    }).on("error", (err) => {
+      console.log("Error: " + err.message);
+    });
+
+    if(data === null){
+      res.status('400').send({errorMessage: err});
+    }
+
     const valid = await schema.isValid(req.body);
     if(valid) {
       const { musician } = req.app.locals;

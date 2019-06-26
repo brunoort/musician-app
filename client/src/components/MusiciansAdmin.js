@@ -20,7 +20,7 @@ export default class MusiciansAdmin extends Component {
   handleAddMusician = async(id, event) => {
     event.preventDefault();
     try {
-      const response = this.http.get(`https://jarcakr0yd.execute-api.us-east-1.amazonaws.com/default/MusicanaApp`)
+      this.http.get(`https://jarcakr0yd.execute-api.us-east-1.amazonaws.com/default/MusicanaApp`)
       .map(res => {
         console.log(res);
       }).catch((err) => {

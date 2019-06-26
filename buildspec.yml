@@ -13,15 +13,15 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...          
-      - docker build -t 010617926175.dkr.ecr.us-east-1.amazonaws.com/musicianprod:latest .
-      - docker tag 010617926175.dkr.ecr.us-east-1.amazonaws.com/musicianprod:latest 010617926175.dkr.ecr.us-east-1.amazonaws.com/musicianprod:latest
+      - docker build -t $REPOSITORY_URI:latest .
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - docker push 010617926175.dkr.ecr.us-east-1.amazonaws.com/musicianprod:latest
-      - docker push 010617926175.dkr.ecr.us-east-1.amazonaws.com/musicianprod:latest
+      - docker push $REPOSITORY_URI:latest
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing image definitions file...
-      - printf '[{"name":"CN-WEBAPP-PROD","imageUri":"%s"}]' 010617926175.dkr.ecr.us-east-1.amazonaws.com/musicianprod:latest > imagedefinitions.json
+      - printf '[{"name":"CN-WEBAPP-PROD","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 artifacts:
     files: imagedefinitions.json

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Musician from './Musician';
 import axios from "axios";
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 export default class MusiciansAdmin extends Component {
 
@@ -18,6 +19,14 @@ export default class MusiciansAdmin extends Component {
   handleAddMusician = async(id, event) => {
     event.preventDefault();
     try {
+      const response = this.http.get(`https://jarcakr0yd.execute-api.us-east-1.amazonaws.com/default/MusicanaApp`)
+      .map(res => {
+        console.log(res);
+      }).catch((err) => {
+        console.log(err);
+      });
+
+
       await axios.put(`/musician/${id}`, this.state.newmusician);
       this.setState({ musicians: [...this.state.musicians, this.state.newmusician] });
       this.setState({ newmusician: { "firstName": "", "lastName": "", "genre": "" }});

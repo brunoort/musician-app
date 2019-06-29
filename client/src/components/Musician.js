@@ -48,7 +48,7 @@ export default class MusicianAdmin extends Component {
               </div>
             : <div>
                 <p className="musician-title">{this.props.firstname } {this.props.lastname }</p>
-                <p className="musician-id">genre: { this.props.genre }</p>
+                <p className="musician-id">specialization: { this.props.specialization }</p>
               </div>
           }
       </div>

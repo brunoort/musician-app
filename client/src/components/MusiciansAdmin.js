@@ -8,7 +8,7 @@ export default class MusiciansAdmin extends Component {
     newmusician: { 
       firstName: "",
       lastName: "",
-      genre: ""
+      specialization: ""
     },
     musicians: []
   }
@@ -32,7 +32,7 @@ export default class MusiciansAdmin extends Component {
       
       await axios.put(`/musician/${id}`, this.state.newmusician);
       this.setState({ musicians: [...this.state.musicians, this.state.newmusician] });
-      this.setState({ newmusician: { "firstName": "", "lastName": "", "genre": "" }});
+      this.setState({ newmusician: { "firstName": "", "lastName": "", "specialization": "" }});
     }catch(err) {
       console.log(err);
     }
@@ -73,7 +73,7 @@ export default class MusiciansAdmin extends Component {
   
   onAddMusicianFirstNameChange = event => this.setState({ newmusician: { ...this.state.newmusician, "firstName": event.target.value } });
   onAddMusicianLastNameChange = event => this.setState({ newmusician: { ...this.state.newmusician, "lastName": event.target.value } });
-  onAddMusicianGenreChange = event => this.setState({ newmusician: { ...this.state.newmusician, "genre": event.target.value } });
+  onAddMusicianspecializationChange = event => this.setState({ newmusician: { ...this.state.newmusician, "specialization": event.target.value } });
   
   componentDidMount = () => {
     this.fetchMusicians();
@@ -84,7 +84,7 @@ export default class MusiciansAdmin extends Component {
       <Fragment>
       <section className="section">
       <div className="container">
-      <p className="subtitle is-5">Add and remove musicians using the form below:</p>
+      <p className="subtitle is-5">Add and remove professionals using the form below:</p>
       <br />
       <div className="columns">
       <div className="column is-one-third">
@@ -116,16 +116,16 @@ export default class MusiciansAdmin extends Component {
       <input 
       className="input is-medium"
       type="text" 
-      placeholder="Enter genre"
-      value={this.state.newmusician.genre}
-      onChange={this.onAddMusicianGenreChange}
+      placeholder="Enter specialization"
+      value={this.state.newmusician.specialization}
+      onChange={this.onAddMusicianspecializationChange}
       />
       </div>
       </div>
       <div className="field">
       <div className="control">
       <button type="submit" className="button is-primary is-medium">
-      Add musician
+      Add professional
       </button>
       </div>
       </div>
@@ -140,7 +140,7 @@ export default class MusiciansAdmin extends Component {
         handleDeleteMusician={this.handleDeleteMusician}
         firstname={musician.firstName}
         lastname={musician.lastName}
-        genre={musician.genre}
+        specialization={musician.specialization}
         key={musician.lastName.toLowerCase()}
         id={musician.firstName.toLowerCase()}
         index={index}

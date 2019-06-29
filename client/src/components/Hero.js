@@ -5,7 +5,7 @@ export default function Hero() {
     <section className="hero is-primary">
       <div className="hero-body">
         <div className="container">
-          Musician App
+        The Employee Factory
         </div>
       </div>
     </section>

@@ -33,7 +33,7 @@ describe('Test suite for Musician store REST API', () => {
     expect(responseBody).not.toBeNull();
     expect(responseBody).toHaveProperty('firstName');
     expect(responseBody).toHaveProperty('lastName');
-    expect(responseBody).toHaveProperty('genre');
+    expect(responseBody).toHaveProperty('specialization');
   });
 
   test('It should fetch a musician via the GET method - error case', async () => {
@@ -49,7 +49,7 @@ describe('Test suite for Musician store REST API', () => {
     const newMusician = {
       firstName: "Bo",
       lastName: "Hansson",
-      genre: "ROCK"
+      specialization: "ROCK"
     };
     const res = await request(server).put('/musician/bo').send(newMusician);
     const responseBody = JSON.parse(res.text);
@@ -63,7 +63,7 @@ describe('Test suite for Musician store REST API', () => {
     const musician = {
       firstName: "BB",
       lastName: "King",
-      genre: "ROCK"
+      specialization: "ROCK"
     };
     const res = await request(server).put('/musician/king').send(musician);
     const responseBody = JSON.parse(res.text);
@@ -77,7 +77,7 @@ describe('Test suite for Musician store REST API', () => {
     const newMusician = {
       firstName: [],
       lastName: "Hansson",
-      genre: "ROCK"
+      specialization: "ROCK"
     };
     try {
       const res = await request(server).put('/musician/bo').send(newMusician);

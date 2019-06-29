@@ -3,36 +3,36 @@ module.exports = {
   coltrane: {
     firstName: 'John',
     lastName: 'Coltrane',
-    genre: 'JAZZ',
+    specialization: 'Dotnet',
   },
 
   davis: {
     firstName: 'Gustav',
     lastName: 'Ejstes',
-    genre: 'Rock',
+    specialization: 'Java',
   },
 
   mccartney: {
     firstName: 'Paul',
     lastName: 'McCartney',
-    genre: 'ROCK',
+    specialization: 'NodeJS',
   },
 
   hendrix: {
     firstName: 'Jimi',
     lastName: 'Hendrix',
-    genre: 'Rock',
+    specialization: 'NodeJS',
   },
 
   cobain: {
     firstName: 'Kurt',
     lastName: 'Cobain',
-    genre: 'Rock',
+    specialization: 'Ruby',
   },
 
   king: {
     firstName: 'Bo',
     lastName: 'Hansson',
-    genre: 'Rock',
+    specialization: 'Python',
   },
 };

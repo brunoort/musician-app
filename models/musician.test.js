@@ -22,7 +22,7 @@ describe('Test suite for Musician model', () => {
       expect(musician).not.toBeNull();
       expect(musician).toHaveProperty('firstName');
       expect(musician).toHaveProperty('lastName');
-      expect(musician).toHaveProperty('genre');
+      expect(musician).toHaveProperty('specialization');
     });
   });
 
@@ -38,7 +38,7 @@ describe('Test suite for Musician model', () => {
     const newMusician = {
       firstName: "Ash",
       lastName: "Bowie",
-      genre: "ROCK"
+      specialization: "ROCK"
     };
     musician.putMusician("ash", newMusician, (err, id) => {
       expect(err).toBeNull();
@@ -50,7 +50,7 @@ describe('Test suite for Musician model', () => {
     const existingMusician = {
       firstName: 'Paul',
       lastName: 'McCartney',
-      genre: 'POP'
+      specialization: 'POP'
     };
     musician.putMusician("paul", existingMusician, (err, id) => {
       expect(err).toBeNull();
@@ -62,7 +62,7 @@ describe('Test suite for Musician model', () => {
     const existingMusician = {
       firstName: 'Sir Paul',
       lastName: 'McCartney',
-      genre: 'ROCK'
+      specialization: 'ROCK'
     };
     musician.putMusician("paul", existingMusician, (err, id) => {
       expect(err).not.toBeNull();
@@ -75,7 +75,7 @@ describe('Test suite for Musician model', () => {
     const newMusician = {
       firstName: "Ashley",
       lastName: "Bowie",
-      genre: "ROCK"
+      specialization: "ROCK"
     };
     musician.putMusician("ash", newMusician, (err, id) => {
       expect(err).not.toBeNull();

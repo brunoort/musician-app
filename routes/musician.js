@@ -37,7 +37,7 @@ router.put('/:id', jsonParser, async (req, res) => {
   try {
     let data = '';
 
-    https.get('https://jarcakr0yd.execute-api.us-east-1.amazonaws.com/default/MusicanaApp', (resp) => {
+    https.get('https://66my8mw9db.execute-api.us-east-1.amazonaws.com/default/MusicianApp', (resp) => {
       // A chunk of data has been recieved.
       resp.on('data', (chunk) => {
         data += chunk;

@@ -7,7 +7,7 @@ export default class Navbar extends Component {
         <div className="navbar-brand">
           <a className="navbar-item" href="/">
 
-            <img src="notes-logo.png" width="400" height="50" alt="logo" />
+            <img src="notes-logo.png" width="400"  alt="logo" />
           </a>
         </div>
 
